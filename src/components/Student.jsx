@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 
 class Student extends Component {
-    constructor(props) {
-        super(props)
-        this.sayGrades = this.sayGrades.bind(this)
-    }
-    sayName = () => {
-        console.log(this.props.name)
-    }
-    sayGrades() {
-        console.log(this.props.ocene)
+    state = {
+        name: "Petar"
+
     }
 
+
+    promeniStete = () => {
+        this.setState({
+            name: "Anabela"
+        })
+    }
     render() {
         return <div>
-            <h3>{this.props.name}</h3>
-            {this.props.ocene.map(ocena => <div>{ocena}</div>)}
-            <button onClick={this.sayName}>Reci ime</button>
-            <button onClick={this.sayGrades}>Reci ocene</button>
+            <h3><span>Ovo je u state-u </span>{this.state.name}</h3>
+            <h3><span>Ovo je u prop-u </span>{this.props.name}</h3>
+            <span> ovo dugme je u studentu</span>
+            <button onClick={this.promeniStete}>Promeni state</button>
         </div>
     }
 }

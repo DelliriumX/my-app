@@ -2,12 +2,21 @@ import { Component } from 'react'
 import Student from './components/Student'
 
 class App extends Component {
+  state = {
+    name: "Ana"
+  }
+
+  promeniProp = () => {
+    this.setState({
+      name: "Jovan"
+    })
+  }
 
   render() {
     return <div id="moja-aplikacija">
-      <Student name="Ana" ocene={[8, 10]} />
-      <Student name="Milos" ocene={[6, 7]} />
-      <Student name="Jovan" ocene={[7, 10]} />
+      <Student name={this.state.name}></Student>
+      <span>ovo dugme je u applikaciji</span>
+      <button onClick={this.promeniProp}>Promeni Prop</button>
     </div>
   }
 }
